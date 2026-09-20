@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="YANDEX入口首页 - 全球领先的搜索引擎与数字服务平台，提供即时搜索、地图导航、新闻资讯、视频流媒体及云计算解决方案。">
+    <meta name="keywords" content="YANDEX, Yandex, 俄罗斯搜索引擎, Yandex地图, Yandex翻译, Yandex云, Yandex音乐, Yandex入口">
+    <title>YANDEX入口首页 - 全球搜索引擎与数字服务平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --yandex-blue: #fc3f1d;
+            --yandex-dark-blue: #d12d0f;
+            --yandex-text: #333333;
+            --yandex-gray: #777777;
+            --yandex-bg: #f9f9f9;
+            --yandex-white: #ffffff;
+            --yandex-border: #e0e0e0;
+            --yandex-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            --yandex-radius: 8px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--yandex-bg);
+            color: var(--yandex-text);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background: var(--yandex-white);
+            border-bottom: 1px solid var(--yandex-border);
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .logo-text {
+            color: var(--yandex-blue);
+            font-family: Arial, sans-serif;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: var(--yandex-gray);
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--yandex-blue);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .btn-outline {
+            border-color: var(--yandex-border);
+            color: var(--yandex-text);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--yandex-blue);
+            color: var(--yandex-blue);
+        }
+
+        .btn-primary {
+            background-color: var(--yandex-blue);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--yandex-dark-blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 2rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--yandex-gray);
+            margin-bottom: 2rem;
+        }
+
+        .search-container {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 14px 20px;
+            font-size: 1rem;
+            border: 1px solid var(--yandex-border);
+            border-radius: 30px;
+            outline: none;
+            box-shadow: var(--yandex-shadow);
+            transition: box-shadow 0.2s;
+        }
+
+        .search-box:focus {
+            box-shadow: 0 4px 12px rgba(252, 63, 29, 0.2);
+            border-color: var(--yandex-blue);
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--yandex-blue);
+            color: white;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Quick Links Grid */
+        .quick-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .link-card {
+            background: var(--yandex-white);
+            padding: 20px;
+            border-radius: var(--yandex-radius);
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid transparent;
+        }
+
+        .link-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--yandex-shadow);
+            border-color: var(--yandex-border);
+        }
+
+        .link-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .link-title {
+            font-weight: 600;
+            color: var(--yandex-blue);
+            font-size: 1rem;
+        }
+
+        /* Main Content Layout */
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            flex: 1;
+        }
+
+        /* Section Styling */
+        .section-title {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--yandex-border);
+            color: #333;
+        }
+
+        /* News Grid */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .news-card {
+            background: var(--yandex-white);
+            border-radius: var(--yandex-radius);
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            transition: box-shadow 0.2s;
+        }
+
+        .news-card:hover {
+            box-shadow: var(--yandex-shadow);
+        }
+
+        .news-img {
+            width: 100%;
+            height: 160px;
+            background-color: #ddd;
+            object-fit: cover;
+        }
+
+        .news-info {
+            padding: 15px;
+        }
+
+        .news-date {
+            font-size: 0.8rem;
+            color: var(--yandex-gray);
+            margin-bottom: 5px;
+        }
+
+        .news-title {
+            font-size: 1rem;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+
+        .news-excerpt {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Sidebar */
+        .sidebar-section {
+            background: var(--yandex-white);
+            padding: 20px;
+            border-radius: var(--yandex-radius);
+            margin-bottom: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .service-list li {
+            border-bottom: 1px solid var(--yandex-border);
+            padding: 12px 0;
+        }
+
+        .service-list li:last-child {
+            border-bottom: none;
+        }
+
+        .service-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1rem;
+        }
+
+        .service-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--yandex-blue);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--yandex-white);
+            border-top: 1px solid var(--yandex-border);
+            padding: 3rem 2rem;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: var(--yandex-blue);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col a {
+            color: var(--yandex-gray);
+            font-size: 0.9rem;
+        }
+
+        .footer-col a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 2rem auto 0;
+            text-align: center;
+            color: var(--yandex-gray);
+            font-size: 0.85rem;
+            padding-top: 20px;
+            border-top: 1px solid var(--yandex-border);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .header-actions {
+                gap: 10px;
+            }
+
+            .btn {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo-area">
+        <span class="logo-text">YANDEX</span>
+        <span>入口</span>
+    </div>
+    <nav class="nav-links">
+        <a href="#">搜索</a>
+        <a href="#">新闻</a>
+        <a href="#">地图</a>
+        <a href="#">翻译</a>
+        <a href="#">视频</a>
+    </nav>
+    <div class="header-actions">
+        <button class="btn btn-outline">登录</button>
+        <button class="btn btn-primary">注册</button>
+    </div>
+</header>
+
+<main>
+    <section class="hero">
+        <h1>探索俄罗斯与全球的数字世界</h1>
+        <p>提供即时搜索引擎、智能导航、云端服务及多媒体娱乐的一站式数字入口。</p>
+        <div class="search-container">
+            <input type="text" class="search-box" placeholder="搜索网页、图片、新闻或视频..." aria-label="搜索">
+            <button class="search-btn" aria-label="搜索按钮">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </button>
+        </div>
+    </section>
+
+    <section class="quick-links">
+        <a href="#" class="link-card">
+            <span class="link-icon">🔍</span>
+            <span class="link-title">搜索引擎</span>
+        </a>
+        <a href="#" class="link-card">
+            <span class="link-icon">🚗</span>
+            <span class="link-title">Yandex地图</span>
+        </a>
+        <a href="#" class="link-card">
+            <span class="link-icon">✈️</span>
+            <span class="link-title">Yandex旅行</span>
+        </a>
+        <a href="#" class="link-card">
+            <span class="link-icon">📺</span>
+            <span class="link-title">Yandex视频</span>
+        </a>
+        <a href="#" class="link-card">
+            <span class="link-icon">🎵</span>
+            <span class="link-title">Yandex音乐</span>
+        </a>
+        <a href="#" class="link-card">
+            <span class="link-icon">☁️</span>
+            <span class="link-title">Yandex云盘</span>
+        </a>
+        <a href="#" class="link-card">
+            <span class="link-icon">🛡️</span>
+            <span class="link-title">Yandex安全</span>
+        </a>
+        <a href="#" class="link-card">
+            <span class="link-icon">🧮</span>
+            <span class="link-title">Yandex计算器</span>
+        </a>
+    </section>
+
+    <div class="main-content">
+        <section class="main-column">
+            <h2 class="section-title">最新资讯</h2>
+            <div class="news-grid">
+                <article class="news-card">
+                    <img src="https://picsum.photos/seed/yandex1/400/250" alt="新闻配图" class="news-img">
+                    <div class="news-info">
+                        <div class="news-date">2023-10-24</div>
+                        <h3 class="news-title">Yandex推出全新人工智能搜索引擎算法，提升信息准确性</h3>
+                        <p class="news-excerpt">通过深度学习和自然语言处理技术的升级，用户将获得更精准的搜索结果和更快的响应速度。</p>
+                    </div>
+                </article>
+                <article class="news-card">
+                    <img src="https://picsum.photos/seed/yandex2/400/250" alt="新闻配图" class="news-img">
+                    <div class="news-info">
+                        <div class="news-date">2023-10-22</div>
+                        <h3 class="news-title">Yandex地图新增多语言导航功能，助力国际游客探索俄罗斯</h3>
+                        <p class="news-excerpt">为了支持全球用户的出行需求，Yandex地图正式上线英语、中文等多语种实时语音导航服务。</p>
+                    </div>
+                </article>
+                <article class="news-card">
+                    <img src="https://picsum.photos/seed/yandex3/400/250" alt="新闻配图" class="news-img">
+                    <div class="news-info">
+                        <div class="news-date">2023-10-20</div>
+                        <h3 class="news-title">Yandex云服务发布企业级数据安全解决方案</h3>
+                        <p class="news-excerpt">针对企业数据保护需求，Yandex云推出了符合GDPR标准的高级加密存储服务。</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <h3 class="section-title" style="border:none; padding:0; margin-bottom:15px;">常用服务</h3>
+                <ul class="service-list">
+                    <li>
+                        <a href="#" class="service-item">
+                            <span class="service-icon">E</span>
+                            <span>Yandex翻译</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="service-item">
+                            <span class="service-icon">T</span>
+                            <span>Yandex翻译</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="service-item">
+                            <span class="service-icon">M</span>
+                            <span>Yandex邮件</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="service-item">
+                            <span class="service-icon">D</span>
+                            <span>Yandex Disk</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="service-item">
+                            <span class="service-icon">N</span>
+                            <span>Yandex新闻</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="service-item">
+                            <span class="service-icon">A</span>
+                            <span>Yandex应用商店</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h3 class="section-title" style="border:none; padding:0; margin-bottom:15px;">热门主题</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                    <a href="#" class="btn btn-outline" style="font-size: 0.8rem; padding: 4px 10px;">俄罗斯旅游</a>
+                    <a href="#" class="btn btn-outline" style="font-size: 0.8rem; padding: 4px 10px;">科技前沿</a>
+                    <a href="#" class="btn btn-outline" style="font-size: 0.8rem; padding: 4px 10px;">云计算</a>
+                    <a href="#" class="btn btn-outline" style="font-size: 0.8rem; padding: 4px 10px;">人工智能</a>
+                    <a href="#" class="btn btn-outline" style="font-size: 0.8rem; padding: 4px 10px;">生活方式</a>
+                </div>
+            </div>
+        </aside>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-col">
+            <h3>YANDEX</h3>
+            <p style="color: #666; font-size: 0.9rem; max-width: 300px;">
+                俄罗斯领先的互联网公司，提供全球领先的搜索、导航、云服务和多媒体解决方案。
+            </p>
+        </div>
+        <div class="footer-col">
+            <h3>产品与服务</h3>
+            <ul>
+                <li><a href="#">搜索引擎</a></li>
+                <li><a href="#">Yandex地图</a></li>
+                <li><a href="#">Yandex云</a></li>
+                <li><a href="#">Yandex翻译</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h3>公司信息</h3>
+            <ul>
+                <li><a href="#">关于我们</a></li>
+                <li><a href="#">招贤纳士</a></li>
+                <li><a href="#">投资者关系</a></li>
+                <li><a href="#">新闻中心</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h3>支持与帮助</h3>
+            <ul>
+                <li><a href="#">帮助中心</a></li>
+                <li><a href="#">服务条款</a></li>
+                <li><a href="#">隐私政策</a></li>
+                <li><a href="#">Cookie设置</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        &copy; 2023 YANDEX LLC. All rights reserved. 此页面仅为设计演示，非官方Yandex入口。
+    </div>
+</footer>
+
+</body>
+</html>
